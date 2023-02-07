@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <!-- 破坏性的 -->
+   <script>
+      const person=[
+         {id:1,name:'张三',age:'18'},
+         {id:2,name:'李四',age:'7'},
+         {id:3,name:'王五',age:'58'}
+      ]
+      person.sort((a,b)=>{ //这里的a，b分别表示第一个用于比较的函数，第二个用于比较的函数 底层原理应该为冒泡
+         console.log('a',a);
+         console.log('b',b);
+         return a.age-b.age;
+      })
+      console.log(person);
+   </script>
+</body>
+</html>

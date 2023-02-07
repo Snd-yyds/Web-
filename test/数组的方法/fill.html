@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <!--
+       语法： array.fill(value, start, end)   于将一个固定值替换数组的元素。
+       start 和 end 为可选值
+       破坏性的
+    -->
+    <script>
+      //创建一个全为0的数组
+      const a = new Array(100).fill(0)
+      a.forEach(item=>{
+         console.log(item);
+      })
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <script>
+      //被观察者
+      class Subject{
+         constructor(name){
+            this.name= name
+            this.state = '开心'
+            this.observers = [] // 存放观察者
+         }
+         //需要将观察者放到自己身上
+         attach(ther){
+            this.observers.push(ther)
+         }
+         //更新观察者的状态
+         setState(state){
+            this.state = state
+            //循环取出每个观察者
+            this.observers.forEach(ther =>{
+               ther.update(this)
+            }) 
+         }
+         
+      }
+      //观察者
+      class Observer{
+         constructor(name){
+            this.name = name
+         }
+         //观察被观察者的状态
+         update(subject){
+            console.log(`我是${this.name},被观察者的状态为${subject.state}`);
+         }
+      }
+
+      let baby = new Subject('被观察者')
+      let father = new Observer('观察者1')
+      let mother = new Observer('观察者2')
+
+      baby.attach(father)
+      baby.attach(mother)
+
+      baby.setState('不开心')
+      baby.setState('不开心还哭了')
+   </script>
+</body>
+</html>

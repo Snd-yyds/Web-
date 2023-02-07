@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      .box{
+         background-color: beige;
+         width: 300px;
+         height: 300px;
+         /* overflow: hidden; --1*/
+      }
+      .main{
+         background-color: red;
+         width: 50px;
+         height: 50px;
+         margin-top: 100px;
+      }
+   </style>
+</head>
+<body>
+   
+  <h1>BFC就是页面上一个隔离的独立容器，容器里面的子元素不会影响外面的元素</h1>
+
+   BFC（格式化上下文）
+      如果一个元素具有BFA，内部元素再怎么弄，都不会影响外部的元素
+      如何开启BFC：
+         1.float 的值为非none
+         2.overflow 的值非visible
+         3.display的值为：inline-block、table....
+         4.position的值为：absolute，fixed
+   <div class="box">
+      <div class="main"></div>
+   </div>
+</body>
+</html>

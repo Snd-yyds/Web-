@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   
+</body>
+</html>
+<script>
+   /* 
+      this指向的是当前代码执行的上下文
+
+      普通函数的this是执行的时候进行绑定，箭头函数的this是声明的时候绑定且不能进行改变
+      箭头函数中的this引用的就是最近作用域中的this
+      向外层作用域中，一层一层查找this，直到有this的定义
+      tip:（但是外层作用域下必须是函数作用域（这个函数作用域必须是普通函数），不能是普通对象作用域，也就是对象，
+      如果是在对象下定义的箭头函数，this会一直往外找，找到最近的函数作用域，如果没找到，则this指向window）
+
+
+      改变this指向的三个方法：   apply，call，bind
+      1.apply，改变this指向，并立即执行函数，参数用数组形式分隔
+      2.call， 改变this指向，并立即执行函数，参数以逗号分隔
+      3.bind  语法与call一致，不会立即执行
+   */
+</script>

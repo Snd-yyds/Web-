@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <div id="text">{{ info.job }}</div>
+   <button id="btn">解析</button>
+   <!-- 
+      reduce方法提供了一个reduce函数给数组中的每一个元素进行顺序调用，每次调用reduce前会将前一次的结果作为参数传入，最后返回一个汇总后的结果
+
+      两个参数 ：
+      1.reduce  回调函数 指定计算规则，
+         四个参数：
+            1).previousVal   前一次调用recude的返回值，
+            2).currentVal    数组正在处理的元素
+            3).currentIndex  数组正在处理的元素的索引
+            4).array         数组本身        
+      2.initVal 初始值，可选参数
+    -->
+   <script>
+      // 数组求和
+      const arr = [3, 4, 6, 7]
+      const sum = arr.reduce((pre, cur, curIndex) => {
+         return pre + cur
+      })
+      // console.log(sum);
+
+      // 多维数组扁平化
+      const arr1 = [[1, 2], [3, 4, [5, 6]]]
+      function flat(arr) {
+         return arr.reduce((pre, cur) => {
+            return pre.concat(Array.isArray(cur) ? flat(cur) : cur)
+         }, [])
+      }
+      console.log(flat(arr1));
+
+      /*       //解析
+            const dataObj={
+               name:'张三',
+               info:{
+                  job:'前端工程师'
+               }
+            }
+            const otxt = document.querySelector('#text')
+            document.querySelector('#btn').onclick = function(){
+               const textStr = otxt.textContent;
+      
+               const reg = /\{\{\s*(\S+)\s*\}\}/
+      
+               const regRes=reg.exec(textStr)
+      
+               if(regRes){
+                  const arr=regRes[1].split('.')
+                  console.log(arr);
+                  const val = arr.reduce((data,key)=>{
+                     console.log('data:',data,'key:',key);
+                     return data[key]
+                  },dataObj)
+                  otxt.textContent=val
+               }
+            } */
+
+
+   </script>
+</body>
+
+</html>

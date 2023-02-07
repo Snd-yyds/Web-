@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <!-- 
+      闭包： 函数套函数，并把内部函数return，内部函数可以访问外部函数的变量，一级一级向上找
+         内部函数访问父函数变量的最终结果
+      作用： 封装变量，封装一个变量来收集数据
+            收敛权限，只有特定的方法可以操作数据
+      优点：不会造成全局变量污染
+      缺点：闭包被子函数引用的变量不会被回收，可能造成内存泄漏
+    -->
+</body>
+
+</html>
+<script>
+   let a = 1
+   let b = 3
+   function fun1() {
+      let a = 2
+      console.log('a------', a);
+      console.log('b------', b);
+      function fun1_1() {
+         a = 5
+         console.log('a_1------', a);
+      }
+      fun1_1()
+      console.log('a------', a);
+   }
+   function fun2() {
+      console.log('fun2 a------', a);
+   }
+   fun2()
+   fun1()
+</script>

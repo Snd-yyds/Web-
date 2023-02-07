@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+   /* 
+      对于复杂数据类型来说
+         深拷贝：完全复制一份数据（包括堆中的数据以及栈中的变量）
+         浅拷贝：对数据结构的第一层进行赋值
+
+         深拷贝的方法
+            1.利用JSON.stringfy(obj)和JSON.parse结合实现
+            2.最标准的方法是通过递归实现
+   */
+   let deepClone = function (obj) {
+      let newObj = obj instanceof Array ? [] : {}
+      for (var item in obj) {
+         newObj[item] = typeof obj[item]=='object'? deepClone(obj[item]) : obj[item]
+      }
+      return newObj
+   }
+
+
+
+   // function deepClone(obj) {
+   //    var newObj = obj instanceof Array ? [] : {};
+   //    for (var i in obj) {
+   //       newObj[i] = typeof obj[i] == 'object' ?
+   //          deepClone(obj[i]) : obj[i];
+   //    }
+   //    return newObj;
+   // }
+   console.log(deepClone({ name: 'lhj' })); 
+
+</script>

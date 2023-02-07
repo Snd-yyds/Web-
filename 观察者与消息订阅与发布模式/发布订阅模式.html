@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <script>
+      // on：订阅  emit：发布
+
+      //邮局
+      let e = {
+         // 订阅者
+         customer:[],
+         on(callback){
+            this.customer.push(callback)   //把订阅者存到数组中(接受订阅者)
+         },
+         emit(value){
+            this.customer.forEach(method =>{
+               method(value)
+            })
+         }
+      }
+      
+      //订阅
+      e.on(function(value){
+         console.log('张三订阅了'+value);
+      })
+      e.on(function(value){
+         console.log('李四订阅了'+value);
+      })
+      e.on(function(value){
+         console.log('王五订阅了'+value);
+      })
+
+      //发布
+      e.emit('中央日报')
+
+   </script>
+
+   <!-- <script>
+      let office ={
+         user:[],
+         add(people){
+            this.user.push(people)
+         },
+         public(content){
+            this.user.forEach(fun1=>{
+               fun1(content)
+            })
+         }
+      }
+      office.add(function(name){
+         console.log(`A订阅了消息${name}`);
+      })
+      office.add(function(name){
+         console.log(`B我订阅了消息${name}`);
+      })
+      office.add(function(name){
+         console.log(`C我订阅了消息${name}`);
+      })
+
+      office.public('今日说法')
+   </script> -->
+</body>
+</html>

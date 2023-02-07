@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab栏切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .box {
+            width: 600px;
+            margin: 100px auto;
+        }
+        
+        .box-th {
+            overflow: hidden;
+            width: 100%;
+            background-color: #88ace6;
+        }
+        
+        .box-th ul li {
+            float: left;
+            width: 90px;
+            height: 20px;
+            margin-right: 10px;
+            padding: 5px;
+            text-align: center;
+        }
+        
+        .current {
+            color: #fff;
+            background-color: green;
+        }
+        
+        .box-tb {
+            margin-top: 20px;
+        }
+        
+        .box-tb .item:nth-child(n+2) {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box-th">
+            <ul>
+                <li data-index="0" class="current">春</li>
+                <li data-index="1">夏</li>
+                <li data-index="2">秋</li>
+                <li data-index="3">冬</li>
+            </ul>
+        </div>
+        <div class="box-tb">
+            <div class="item">春季排四季之首，新的轮回从此开启。春，代表着温暖、生长，植物发芽，风和日暖，鸟语花香。这季节的气温、日照、降雨，处于一年中的转折点，趋于上升或增多。春季，阴阳之气开始转变，万物随阳气上升而萌牙生长，春季是万物生长、春耕播种的季节，所谓“一年之计在于春”。 春季起始—结束： 依据天象变化划分：传统上是以“立春”（斗指寅，太阳达黄经315°时）作为春季的起点，至“立夏”结束。 依据气温变化划分：近代采用学者张宝堃的“候平均气温”划分，以候平均温度(连续5天气温的平均)从10℃以下稳定升到10℃以上时作为春季开始，至候平均温度22℃以上（入夏）时结束。
+            </div>
+            <div class="item">夏季万物至此皆盛，是农作物进入旺季生长的一个季节。温度升高，天气炎热，狂风暴雨频发，万物盛长。夏季是风暴最多的季节，常伴随着大风、暴雨。北半球夏季，大陆受热气压上升形成低气压，海洋恒温温度相对较低形成高气压，根据环流，夏季吹的是东南风。夏季北半球各地的白昼时间全年最长。 夏季起始—结束： 依据天象变化划分：以“立夏”（斗指东南，太阳达黄经45°）作为夏季的起点，至“立秋”结束。 依据气温变化划分：以候平均温度稳定升到22℃以上时作为夏季开始，至候平均温度22℃以下时结束。
+            </div>
+            <div class="item">秋季是收获季节，意味着万物开始从繁茂成长趋向萧索成熟。秋季的前两个节气立秋、处暑，还是酷热天气，因太阳所带来的热力未减弱，所谓“热在三伏”，三伏天出现在小暑与处暑之间，是一年中气温最高且又潮湿、闷热的日子。造成三伏天湿度高原因是，三伏天吹东南风，而东南方是太平洋和印度洋，空气潮湿，风的潮湿造成了三伏天湿度大；到了深秋之后则相反，吹西北风，而西北方是干燥的内陆，干燥的西北风造成深秋之后气候干燥。秋季前两个节气的气候特征为潮湿、闷热，秋季真正凉爽一般要到白露节气之后，自白露起渐渐趋向凉爽、干燥。随着进入深秋，气候由热转凉，万物随寒气增长，逐渐萧落，这是热与冷交替的季节。秋季最明显的变化草木的叶子从繁茂的绿色到发黄，并开始落叶庄稼则开始成熟。
+                [1] 秋季起始—结束： 依据天象变化划分：以“立秋”（斗指西南，太阳达黄经135°）作为秋季的起点，至“立冬”结束。 依据气温变化划分：以候平均温度从22℃以上稳定降到22℃以下作为秋季开始，至候平均温度降到10℃以下时结束。
+            </div>
+            <div class="item">冬季，阴阳转变，万物由收到藏，植物生气闭蓄。进入立冬后意味着秋季少雨干燥气候渐过去，转为阴雨寒冻的冬季气候特征。北半球的太阳高度小，白昼时间短。所谓“热在三伏”，冷在三九”，冬至为"一九天"，冬至之前还不算很冷，冬至过后强冷空气南下频繁，并越过了南岭，气温骤降，天气寒冷。冬季真正寒冷，是在冬至后。 冬季起始—结束： 依据天象变化划分：以“立冬”（斗指西北，太阳达黄经225°）作为冬季的起点，至下一“立春”结束。 依据气温变化划分：以候平均温度稳定降到10℃以下为冬季的开始，至候平均温度10℃以上时结束。
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var list = document.querySelector('.box-th').querySelectorAll('li');
+        var items = document.querySelector('.box-tb').querySelectorAll('.item');
+        for (var i = 0; i < list.length; i++) {
+            list[i].onclick = function() {
+                // 导航栏样式切换，排他算法
+                for (var i = 0; i < list.length; i++) {
+                    list[i].className = '';
+                }
+                this.className = 'current';
+
+                // 下面展示内容切换，排他算法
+                var index = this.getAttribute('data-index');
+                for (var i = 0; i < items.length; i++) {
+                    items[i].style.display = 'none';
+                }
+                items[index].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>

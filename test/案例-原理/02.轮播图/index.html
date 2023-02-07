@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="./css/index.css">
+   <script src="./js/animate.js"></script>
+   <script src="../封装的函数/lunbo.js"></script>
+   <!-- <script src="./js/index.js"></script> -->
+</head>
+<body>
+   <div class="content-warpper">
+      <div class="small-btn pre"><a href="javascript:;">&lt;</a></div>
+      <div class="small-btn next"><a href="javascript:;">&gt;</a></div>
+      <ul class="show">
+         <li><img src="./img/focus.jpg"></li>
+         <li><img src="./img/focus1.jpg"></li>
+         <li><img src="./img/focus2.jpg"></li>
+         <li><img src="./img/focus3.jpg"></li>
+         <li><img src="./img/focus2.jpg"></li>
+         <li><img src="./img/focus1.jpg"></li>
+         <li><img src="./img/focus3.jpg"></li>
+         <li><img src="./img/focus2.jpg"></li>
+         <li><img src="./img/focus1.jpg"></li>
+      </ul>
+      <ul class="small-item">
+      </ul>
+   </div>
+
+   <script>
+      let a = document.querySelector('.pre')  
+      let b = document.querySelector('.next') 
+      let c = document.querySelector('.content-warpper') 
+   
+      let d = document.querySelector('.show')  
+      let e = document.querySelector('.small-item')
+
+      lunbo(b,a,c,d,e)
+   </script>
+</body>
+</html>

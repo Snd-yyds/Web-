@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <input type="text" id="msg" placeholder="请输入你要传递的数据">
+   <button>点我发送数据</button>
+
+   <script>
+      /* 1.cookie+setInterval方式
+      要想在多个窗口中通信，通信的内容一定不能放在window对象中，因为window是当前窗口的作用域，
+      里面的内容只属于当前窗口。而cookie是浏览器的本地存储机制，和窗口无关。 */
+      // 将要发送的信息写入cookie：
+      // let msg = document.querySelector('#msg');
+      // let btn = document.querySelector('button')
+      // btn.addEventListener('click', () => {
+      //    if (msg.value.trim() != "") {
+      //       document.cookie = "msg=" + msg.value.trim();
+      //    }
+      // })
+
+      /* 2.通过localstorage实现
+         localStorage比cookie好在它在setItem存东西时会自动触发整个浏览器的storage事件，
+         除了当前页面之外，所有打开的标签窗口都会受影响。 */
+      let msg = document.querySelector('#msg');
+      let btn = document.querySelector('button')
+      btn.onclick = function () {
+         if (msg.value.trim() !== "") {
+            localStorage.setItem("msg", msg.value.trim());
+         }
+      }
+
+   </script>
+
+
+
+
+</body>
+
+</html>

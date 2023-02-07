@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+   /* 
+      基础数据类型 ：数字，字符串，布尔，null，undefind 直接传值
+      复杂数据类型： 数组，对象，函数， 传的是地址
+   */
+   //传值
+   let num1 = 1;
+   let num2 = num1;
+   num2 = 2
+   console.log(num1);
+   console.log(num2);
+   //传址
+   var obj1 = [1, 2]
+   var obj2 = obj1
+   obj2[0] = 520000
+   console.log(obj1[0]);
+   console.log('-----------------------------');
+
+   //面试题
+   var user = {
+      name:'小红'
+   }
+   // var user2 = {
+   //    name:'小红'
+   // }
+   // user.name='xiaohong'
+   // console.log(user);
+   // console.log(user2);
+
+   function changeName(user) {
+      //方法内部的变量，先在方法内部找寻是否声明，
+      // 找不到声明，在找寻形参
+      //没有形参就去找全局变量
+      //没有声明那就自动声明一个全局变量
+      user.name = '小明'
+      user = {
+         name: '小兰'
+      }
+      // console.log(this.user); //实参
+      // console.log(user); //形参
+   }
+   changeName(user)
+   console.log(user.name);
+</script>

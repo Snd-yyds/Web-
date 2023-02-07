@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <!-- display：none和visibility：hidden的区别 -->
+      区别：
+         1.占用文档流中的位置
+         原理：html解析器中有js解析器，dom解析器，css解析器
+               display：none ： dom解析器和css解析器不会将结构和样式合并
+               visibility：hidden: 会合并，只是用css样式去隐藏了一个结构，所以本应该占用位置
+         2.重绘和回流
+            以上两种都会产生重绘。display会产生一次回流
+            产生回流一定会造成重绘，但是产生重绘不一定导致回流
+
+            回流：当前元素的属性发生了改变，会影响布局
+            产生回流的情况：改变元素的位置，显示隐藏元素...
+            重绘： 属性发生改变，不影响布局
+            产生重绘的情况：样式的改变
+</body>
+</html>
